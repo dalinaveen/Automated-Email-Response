@@ -5,7 +5,7 @@ from db_setup import init_db
 # from automail_function import send_email_threaded
 from auto_mail_function import send_email_reply
 
-app =Flask(__name__,template_folder="Frontend/templates",static_folder="Frontend/static")
+app =Flask(__name__)
 init_db()
 @app.route("/",methods=['GET',"POST"])
 def submit_query():
