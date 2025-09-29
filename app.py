@@ -1,9 +1,9 @@
 from flask import Flask,render_template,request
 import sqlite3
 from datetime import datetime
-import threading
 from db_setup import init_db
-from automail_function import send_email_threaded
+# from automail_function import send_email_threaded
+from auto_mail_function import send_email_reply
 
 app =Flask(__name__)
 init_db()
@@ -22,7 +22,7 @@ def submit_query():
         conn.commit()
         conn.close()
 
-        send_email_threaded(name, email, query_text)
+        send_email_reply(name, email, query_text)
 
         return render_template("thank_you.html", name=name)
       
